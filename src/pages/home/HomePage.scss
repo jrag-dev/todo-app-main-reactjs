@@ -1,0 +1,321 @@
+@import '../../styles/variables';
+
+.todo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 4rem auto;
+	width: 89%;
+	max-width: 600px;
+	
+	.todo-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 2rem 0;
+		
+		h1 {
+			font-size: 1.9rem;
+		}
+	
+		button {
+			border: none;
+			background-color: transparent;
+			cursor: pointer;
+		}
+	}
+
+	.todo-container {		
+		display: grid;
+		gap: 1rem;
+		
+		.todo-container-input {
+			padding: 16px;
+			border-radius: 4px;
+			background-color: $very-dark-desaturated-blue;
+			display: flex;
+			align-items: center;
+			justif-content: space-between;
+			gap: 1rem;
+			
+			&.light {
+				background-color: #fff;
+				
+				.checkbox-container {
+					background: $very-light-gray;
+					border: 1px solid $light-grayish-blue;
+				}
+				
+				input[type="text"] {
+					color: $very-dark-desaturated-blue;
+				}
+			}
+			
+			.checkbox-container {
+				position: relative;
+				height: 24px;
+				width: 24px;
+				background: $very-dark-desaturated-blue;
+				border-radius: 50%;
+				border: 1px solid #fff;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				
+				.checkbox {
+					position: absolute;
+					height: 16px;
+					width: 16px;
+					z-index: -1;
+				}
+			}
+			
+			input[type="text"] {
+				width: 80%;
+				height: 32px;
+				background: transparent;
+				border: none;
+				outline: none;
+				color: #FFF;
+				font-family: $font-family;
+				font-size: $font-size;
+			}
+		}
+		.todo-list {
+			background-color: $very-dark-desaturated-blue;
+			border-radius: 4px;
+			box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, .07);
+			
+			&.light {
+				background-color: #fff;
+				color: $very-dark-grayish-blue;
+				
+				.todo-item {
+					border-bottom: 1px solid $very-light-grayish-blue;
+					
+					.checkbox-container {
+						border: 1px solid $light-grayish-blue;
+					}
+				}
+			}
+			
+			.todo-item {
+				position: relative;
+				padding: 20px;
+				border-bottom: 1px solid $very-dark-grayish-blue;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 16px;
+				width: 100%;
+				
+				&:last-of-type {
+					border-bottom: none;
+				}
+				
+				.checkbox-container {
+					position: relative;
+					height: 24px;
+					width: 24px;
+					background: transparent;
+					border-radius: 50%;
+					border: 1px solid #fff;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+					
+					&.checkbox-completed {
+						background: $check-background;
+						
+						.checkbox {
+							background-image: url('/images/icon-check.svg');
+							background-repeat: no-repeat;
+							background-position: center center;
+							appearance: none;
+						}
+					}
+					
+					.checkbox {
+						position: absolute;
+						height: 16px;
+						width: 16px;
+						z-index: 999;
+						background-image: none;
+						background-repeat: no-repeat;
+						background-position: center center;
+						appearance: none;
+						cursor: pointer;
+					}
+				}
+				
+				.todo-content {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					gap: 16px;
+					width: 88%;
+					
+					p {
+						font-size: $font-size;
+					}
+					
+					.todo-completed {
+						text-decoration: line-through;
+						color: $dark-grayish-blue;
+					}
+					
+					button {
+						background: none;
+						border: transparent;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		
+		.todo-clear {
+			background-color: $very-dark-desaturated-blue;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 14px;			
+			margin-top: -.99rem;
+			border-top: 1px solid $very-dark-grayish-blue;
+			border-radius: 4px;
+			padding: 22px;
+			color: $dark-grayish-blue;
+			box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, .07);
+			
+			&.light {
+				background-color: #fff;
+				border-top: 1px solid $light-grayish-blue;
+			}
+			
+			button {
+				background-color: transparent;
+				border: none;
+				border-radius: 4px;
+				color: $dark-grayish-blue;
+				font-family: $font-family;
+				cursor: pointer;
+			}
+		}
+		
+		.todo-actions {
+			background-color: $very-dark-desaturated-blue;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 1rem;
+			border-radius: 4px;
+			box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, .07);
+			
+			&.light {
+				background-color: #fff;
+				
+				button {
+					&:hover {
+						color: $very-dark-blue;
+					}
+				}
+			}
+			
+			button {
+				background-color: transparent;
+				border: none;
+				border-radius: 4px;
+				color: $dark-grayish-blue;
+				font-family: $font-family;
+				padding: 22px;
+				font-weight: bold;
+				cursor: pointer;
+				border: 1px solid crimson;
+				
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+		
+		.todo-actions-all {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			background: $very-dark-desaturated-blue;
+			padding: 22px;
+			color: $dark-grayish-blue;
+			font-family: $font-family;
+			font-size: $font-size;
+			
+			&.light {
+				background-color: #fff;
+				
+				.todo-actions-filters {
+					button {
+						&:hover {
+							color: $very-dark-blue;
+						}
+					}
+				}
+				
+				button {
+					&:hover {
+						color: $very-dark-blue;
+					}
+				}
+			}
+			
+			.todo-actions-filters {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 30%;
+				
+				button {
+					background: none;
+					border: none;
+					cursor: pointer;
+					color: $dark-grayish-blue;
+					font-family: $font-family;
+					font-size: $font-size;
+					
+					&:hover {
+						color: #fff;
+					}
+					
+					&.active {
+						color: $bright-blue;
+					}
+				}
+			}
+			
+			button {
+				background: none;
+				border: none;
+				cursor: pointer;
+				color: $dark-grayish-blue;
+				font-family: $font-family;
+				font-size: $font-size;
+				
+				&:hover {
+					color: #fff;
+				}
+			}
+			
+		}
+	}
+	
+	.message-drag-drop {
+		font-family: $font-family;
+		font-size: $font-size;
+		text-align: center;
+		margin-top: 3rem;
+		color: $dark-grayish-blue;
+	}
+}
+
