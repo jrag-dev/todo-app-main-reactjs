@@ -1,5 +1,6 @@
 import { useState } from 'react'
-
+import { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
 
 const initialStateTodo = {
   id: null,
@@ -9,6 +10,7 @@ const initialStateTodo = {
 
 export function FormComponent ({ createTodo }) {
   const [formTodo, setFormTodo] = useState(initialStateTodo)
+  const { theme } = useContext(ThemeContext)
   
   const handleChangeFormtodo = (event) => {
     setFormTodo({
@@ -29,7 +31,7 @@ export function FormComponent ({ createTodo }) {
   
   return (
     <form 
-      className="todo-container-input"
+      className={`todo-container-input ${!theme ? 'dark' : 'light'}`}
       onSubmit={handleSubmitFormTodo}
     >
       <div className="checkbox-container">

@@ -16,22 +16,41 @@ body {
 
 main {
 	width: 100%;
-	max-width: 1440px;
 	margin: 0 auto;
 	background: $very-dark-blue;
 	min-height: 100vh;
+	
+	.bg-image {
+		background-size: cover;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 30vh;
+	}
+	
+	&.light {
+		background: $very-light-gray;
+		
+		.bg-image {
+			background-image: url('images/bg-mobile-light.jpg');
+		}
+	}
+	
+	&.dark {
+		background: $very-dark-blue;
+		
+		.bg-image {
+			background-image: url('images/bg-mobile-dark.jpg');
+		}
+	}
 }
 
-.bg-image {
-	background-image: url('images/bg-mobile-dark.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	width: 100%;
-	height: 30vh;
-}
 
 @media only screen and (min-width: 768px) {
 	.bg-image {
 		background-image: url('images/bg-desktop-dark.jpg');
+	}
+	
+	.todo {
+		margin: 4rem auto;
 	}
 }

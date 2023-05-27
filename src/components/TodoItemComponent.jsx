@@ -8,7 +8,7 @@ export function TodoItemComponent ({ todo, deleteTodo, completedTodoItem}) {
 	    <input type="checkbox" className='checkbox' onClick={() => console.log('click en ckeckbox')} data-id={todo.id} onClick={completedTodoItem}/>
       </div>
       <div className="todo-content">
-		<p>{todo.title}</p>
+		<p className={`${todo.completed ? 'todo-completed' : ''}`}>{todo.title}</p>
 	  <button onClick={() => deleteTodo(todo.id)}>
 	  <img src="images/icon-cross.svg" alt="delete todo icon"/>
 	  </button>
