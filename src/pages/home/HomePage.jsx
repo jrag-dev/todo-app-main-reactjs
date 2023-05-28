@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 import { ThemeContext } from '../../context/ThemeContext'
 import { HeaderComponent } from '../../components/HeaderComponent'
 import { FormComponent } from '../../components/FormComponent'
@@ -12,9 +11,10 @@ import './HomePage.scss';
 
 export function HomePage () {
 	const { filters, filtersTodo, filteredTodos } = useFiltersTodo()
-	const { todos, createTodo, deleteTodo, completedTodoItem, clearTodoCompleted } = useTodo()
+	const { todos, createTodo, deleteTodo, completedTodoItem, clearTodoCompleted, updateTodoDragAndDrop } = useTodo()
 	const { width } = useCurrentWidth()
 	const { theme } = useContext(ThemeContext)
+	const [dragTodo, setDragTodo] = useState()
 	
 	const breakPoints = {
 		mobile: 768,
@@ -22,6 +22,20 @@ export function HomePage () {
 	}
 	const todoLength = todos.length
 	const filterTodo = filteredTodos(todos)
+	
+	const handleDragStart = (index) => {
+		setDragTodo(index)
+	}
+	
+	const handleDragEnter = (event, index) => {
+		const newTodos = [...todos]
+		const item = newTodos[dragTodo]
+		newTodos.splice(dragTodo, 1)
+		newTodos.splice(index, 0, item)
+		setDragTodo(index)
+		updateTodoDragAndDrop(newTodos)
+	}
+	
 
 	return (
 		<section className="todo">
@@ -34,6 +48,8 @@ export function HomePage () {
 					todos={filterTodo}
 					deleteTodo={deleteTodo}
 					completedTodoItem={completedTodoItem}
+					handleDragStart={handleDragStart}
+					handleDragEnter={handleDragEnter}
 				/>
 				
 				{
@@ -42,7 +58,7 @@ export function HomePage () {
 						<div className={`todo-clear ${!theme ? 'dark' : 'light'}`}>
 							<p>{todoLength} items left</p>
 							<button
-								onClick={clearTodoCompleted}
+								onClick={() => clearTodoCompleted}
 							>Clear Completed</button>
 						</div>
 						<div className={`todo-actions ${!theme ? 'dark' : 'light'}`}>

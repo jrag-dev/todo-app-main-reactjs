@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 
 export function useTodo () {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(JSON.parse(window.localStorage.getItem('todos')) || [])
   
   const todoLength = todos.length
 	
@@ -35,11 +35,21 @@ export function useTodo () {
     const newTodos = todos.filter(item => !item.completed && item)
     setTodos(newTodos)
   }
+  
+  const updateTodoDragAndDrop = (ListTodosDrag) => {
+    setTodos(ListTodosDrag)
+  }
+  
+  useEffect(() => {
+    window.localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
+  
   return {
     todos,
     createTodo,
     deleteTodo,
     completedTodoItem,
-    clearTodoCompleted
+    clearTodoCompleted,
+    updateTodoDragAndDrop
   }
 }

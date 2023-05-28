@@ -111,6 +111,7 @@
 				justify-content: space-between;
 				gap: 16px;
 				width: 100%;
+				cursor: move;
 				
 				&:last-of-type {
 					border-bottom: none;
@@ -234,7 +235,6 @@
 				padding: 22px;
 				font-weight: bold;
 				cursor: pointer;
-				border: 1px solid crimson;
 				
 				&:hover {
 					color: #fff;
