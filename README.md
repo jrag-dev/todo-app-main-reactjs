@@ -56,9 +56,11 @@ Users should be able to:
 
 ### What I learned
 
-With this project I was able to practice what I have learned about HTML, SASS and Reactjs paying close attention to the semantics of HTML and Applying CSS Flexbox and Grid, as well as using CSS positioning.
+With this project I was able to practice what I have learned about HTML, SASS and Reactjs 
+paying close attention to the semantics of HTML and Applying CSS Flexbox and Grid, as well 
+as using CSS positioning.
 
 ## Author
 
 - Frontend Mentor - [@jrag-dev](https://www.frontendmentor.io/profile/jrag-dev)
-- LinkedIn profile - [](https://www.linkedin.com/in/jrag-dev/)
+- LinkedIn profile - [Jose Alvarado](https://www.linkedin.com/in/jrag-dev/)
