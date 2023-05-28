@@ -31,7 +31,7 @@ main {
 		background: $very-light-gray;
 		
 		.bg-image {
-			background-image: url('images/bg-mobile-light.jpg');
+			background-image: url('/images/bg-mobile-light.jpg');
 		}
 	}
 	
@@ -39,7 +39,7 @@ main {
 		background: $very-dark-blue;
 		
 		.bg-image {
-			background-image: url('images/bg-mobile-dark.jpg');
+			background-image: url('/images/bg-mobile-dark.jpg');
 		}
 	}
 }
@@ -50,20 +50,20 @@ main {
 		&.light {
 
 			.bg-image {
-				background-image: url('images/bg-desktop-light.jpg');
+				background-image: url('/images/bg-desktop-light.jpg');
 			}
 		}
 		
 		&.dark {
 			
 			.bg-image {
-				background-image: url('images/bg-desktop-dark.jpg');
+				background-image: url('/images/bg-desktop-dark.jpg');
 			}
 		}
 	}
 	
 	.bg-image {
-		background-image: url('images/bg-desktop-dark.jpg');
+		background-image: url('/images/bg-desktop-dark.jpg');
 	}
 	
 	.todo {
